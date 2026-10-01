@@ -16,6 +16,9 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 var app = builder.Build();
 
 //Configure the HTTP request pipeline.
+app.UseCors(x=> x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000","https://localhost:3000"));
+
+//Configure the HTTP request pipeline.
 app.MapControllers();
 
 //Create a scope to get the required services for database migration and seeding
